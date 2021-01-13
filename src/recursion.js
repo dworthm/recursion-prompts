@@ -36,6 +36,19 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  // Base case
+  if (array.length === 0) {
+    return 0;
+  }
+  // Recursive case
+  array.forEach(function(item) {
+    if (!Array.isArray(item)) {
+      return item + arraySum(array.slice(1));
+    } else {
+      arraySum(item);
+    }
+
+  });
 };
 
 // 4. Check if a number is even.
@@ -70,6 +83,12 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  // Base case
+  if (string.length === 0) {
+    return '';
+  }
+  // Recursive case
+  return string[string.length-1] + reverse(string.slice(0,string.length-1));
 };
 
 // 10. Write a function that determines if a string is a palindrome.
