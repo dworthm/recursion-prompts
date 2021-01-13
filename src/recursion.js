@@ -36,6 +36,11 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  // Loop through input array of mixed elements
+  // sum every number
+  // stop when we get to end of input array
+
+
   // Base case
   if (array.length === 0) {
     return 0;
@@ -45,7 +50,7 @@ var arraySum = function(array) {
     if (!Array.isArray(item)) {
       return item + arraySum(array.slice(1));
     } else {
-      arraySum(item);
+      return arraySum(item);
     }
 
   });
@@ -53,6 +58,17 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  // Base case
+  if (n === -1) {
+    return false;
+  }
+  if (n === 0) {
+    return true;
+  }
+  n = Math.abs(n);
+
+  // Recursive case
+  return isEven(n-2);
 };
 
 // 5. Sum all integers below a given integer.
