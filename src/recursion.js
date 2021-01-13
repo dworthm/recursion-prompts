@@ -1,6 +1,7 @@
 /* jshint esversion: 6 */
 
 // Solve the following prompts using recursion.
+// We recommend that everyone works through problems 1-10, 23, and 24 at minimum before moving on.
 
 // 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
@@ -23,6 +24,13 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  // Base case
+  if (array.length === 0) {
+    return 0;
+  }
+  // Recursive case
+  return array[0] + sum(array.slice(1));
+
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
