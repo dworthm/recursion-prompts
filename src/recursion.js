@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 
 // Solve the following prompts using recursion.
-// We recommend that everyone works through problems 1-10, 23, and 24 at minimum before moving on.
+// We recommend that everyone works through problems 1-10, 23, and 24 at minimum before moving on. 3 6 10 23 24
 
 // 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
@@ -36,24 +36,18 @@ var sum = function(array) {
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
-  // Loop through input array of mixed elements
-  // sum every number
-  // stop when we get to end of input array
-
-
+  var sum = 0;
   // Base case
-  if (array.length === 0) {
-    return 0;
+  if (!Array.isArray(array)) {
+    return sum += array;
   }
+
   // Recursive case
   array.forEach(function(item) {
-    if (!Array.isArray(item)) {
-      return item + arraySum(array.slice(1));
-    } else {
-      return arraySum(item);
-    }
-
+      return sum += arraySum(item);
   });
+
+  return sum;
 };
 
 // 4. Check if a number is even.
@@ -92,21 +86,6 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
-  var result = [];
-  // Base case
-  if (x + 1 === y || y + 1 === x) {
-    return [x];
-  }
-
-  //  Recursive case
-  if (x < y) {
-    result = result.concat(range(x + 1, y));
-  }
-  if (x > y) {
-    result = result.concat(range(x - 1, y));
-  }
-
-  return result;
 };
 
 // 7. Compute the exponent of a number.
