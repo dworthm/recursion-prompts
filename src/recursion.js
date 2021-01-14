@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 
 // Solve the following prompts using recursion.
-// We recommend that everyone works through problems 1-10, 23, and 24 at minimum before moving on. 3 6 10 23 24
+// We recommend that everyone works through problems 1-10, 23, and 24 at minimum before moving on: 6 10 23 24
 
 // 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
 // denoted by n!, is the product of all positive integers less than or equal to n.
@@ -86,6 +86,21 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var result = [];
+  // Base case
+  if (x + 1 === y || x - 1 === y) {
+    return x;
+  }
+
+  // Recursive case
+
+
+  if (x < y) {
+    result = result.concat(range(x + 1, y));
+  } else {
+    result = result.concat(range(x - 1, y));
+  }
+  return result;
 };
 
 // 7. Compute the exponent of a number.
@@ -137,6 +152,14 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+
+  // Base case
+  if (string.length < 2) {
+    return true;
+  }
+
+  // Recursive case
+  return string[0].toLowerCase() === string[string.length - 1].toLowerCase() && palindrome(string.slice(1,string.length - 1));
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
