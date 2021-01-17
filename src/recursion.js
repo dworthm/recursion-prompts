@@ -87,20 +87,23 @@ var sumBelow = function(n) {
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
   var result = [];
+  if (x === y) {
+    return result;
+  }
   // Base case
   if (x + 1 === y || x - 1 === y) {
-    return x;
+    return result;
   }
 
-  // Recursive case
-
-
+  // Recursive
   if (x < y) {
-    result = result.concat(range(x + 1, y));
-  } else {
-    result = result.concat(range(x - 1, y));
+    x++;
+    return result.concat(x).concat(range(x, y));
   }
-  return result;
+  if (x > y) {
+    x--;
+    return result.concat(x).concat(range(x, y));
+  }
 };
 
 // 7. Compute the exponent of a number.
