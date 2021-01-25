@@ -171,11 +171,30 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+
+  if (y === 0) {
+    return NaN;
+  }
+  if (x === y || x === 0) {
+    return 0;
+  }
+  if (x > 0) {
+    if (x - y < 0) {
+      return x;
+    }
+    return modulo(x - y, y);
+  } else {
+    if (x + y > 0) {
+      return x;
+    }
+    return modulo(x + y, y);
+  }
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
 var multiply = function(x, y) {
+
 };
 
 // 13. Write a function that divides two numbers without using the / operator or
@@ -201,6 +220,14 @@ var compareStr = function(str1, str2) {
 // 16. Write a function that accepts a string and creates an array where each letter
 // occupies an index of the array.
 var createArray = function(str) {
+  var letters = [];
+  //base case
+  if (str.length === 0) {
+    return letters;
+  }
+
+  return letters.concat(str[0]).concat(createArray(str.slice(1)));
+
 };
 
 // 17. Reverse the order of an array
