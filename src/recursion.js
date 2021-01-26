@@ -178,17 +178,29 @@ var modulo = function(x, y) {
   if (x === y || x === 0) {
     return 0;
   }
-  if (x > 0) {
+
+  if (x > 0 && y > 0) {
     if (x - y < 0) {
       return x;
     }
     return modulo(x - y, y);
-  } else {
+  } else if (x < 0 && y < 0) {
+    if (x - y > 0) {
+      return x;
+    }
+    return modulo(x - y, y);
+  } else if (x < 0) {
     if (x + y > 0) {
       return x;
     }
     return modulo(x + y, y);
+  } else {
+    if (x + y < 0) {
+      return x;
+    }
+    return modulo(x + y, y);
   }
+
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
