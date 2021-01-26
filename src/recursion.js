@@ -197,13 +197,9 @@ var multiply = function(x, y) {
   if (y === 0 || x === 0) {
     return 0;
   }
-  if (y > 0 && x > 0) {
+  if (y > 0) {
     return x + multiply(x, y - 1);
-  }
-  if (y > 0 && x < 0) {
-    return x + multiply(x, y - 1);
-  }
-  if (y < 0) {
+  } else {
     return -x + multiply(x, y + 1);
   }
 };
